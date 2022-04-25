@@ -4,22 +4,18 @@ import { Person } from "../entities/Person"
 interface PersonRequest{
   name: string
   login: string
-  password: string,
-  cpf: string
-  rg: string
+  password: string
   phone: string
 }
 
-class CreatePersonService {
-  async execute({name, login, password, cpf, rg, phone}: PersonRequest): Promise<Person>{
+export class CreatePersonService {
+  async execute({name, login, password, phone}: PersonRequest): Promise<Person>{
     const repo = getRepository(Person)  
   
     const person = repo.create({
       name,
       login,
       password,
-      cpf,
-      rg,
       phone
     })
 
