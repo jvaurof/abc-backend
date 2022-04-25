@@ -13,7 +13,7 @@ CREATE TABLE person (
 );
 
 CREATE TABLE natural_person (
- id int NOT NULL,
+ id serial NOT NULL,
  id_person int NOT NULL,
  cpf varchar(12) NOT NULL,
  rg varchar(12) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE natural_person (
 );
 
 CREATE TABLE juridical_person (
- id int NOT NULL,
+ id serial NOT NULL,
  id_person int NOT NULL,
  cnpj varchar(12) NOT NULL,
  state_registration varchar(15) NOT NULL,
