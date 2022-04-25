@@ -21,7 +21,7 @@ export class Person{
   cpf: string
 
   @Column()
-  runing: string
+  rg: string
 
   @CreateDateColumn()
   created_at: Date
