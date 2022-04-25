@@ -17,6 +17,9 @@ export class Person{
   @Column()
   phone: string
 
+  @Column()
+  person_type: string 
+
   @CreateDateColumn()
   created_at: Date
 

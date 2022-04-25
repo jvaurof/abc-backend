@@ -1,9 +1,12 @@
+CREATE TYPE person_type AS ENUM ('natural', 'juridical')
+
 CREATE TABLE person (
  id int NOT NULL,
  name varchar(50) NOT NULL,
  login varchar(15) NOT NULL,
  password varchar(20) NOT NULL,
  phone varchar(12) NOT NULL,
+ type person_type NOT NULL,
  created_at timestamp NOT NULL,
  updated_at timestamp,
  PRIMARY KEY (id)
