@@ -32,7 +32,7 @@ export class CreatePersonService {
       login,
       password,
       phone,
-      type: "natural",
+      type: person_type,
       created_at: new Date(),
     })
 

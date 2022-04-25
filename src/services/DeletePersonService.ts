@@ -10,6 +10,5 @@ export class DeletePersonService {
     }
 
     await repo.delete(id)
-
   }
 }
