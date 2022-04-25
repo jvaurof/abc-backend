@@ -18,7 +18,7 @@ export class Person{
   phone: string
 
   @Column()
-  person_type: string 
+  type: string 
 
   @CreateDateColumn()
   created_at: Date

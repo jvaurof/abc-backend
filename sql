@@ -1,7 +1,7 @@
-CREATE TYPE person_type AS ENUM ('natural', 'juridical')
+CREATE TYPE person_type AS ENUM ('natural', 'juridical');
 
 CREATE TABLE person (
- id int NOT NULL,
+ id serial NOT NULL,
  name varchar(50) NOT NULL,
  login varchar(15) NOT NULL,
  password varchar(20) NOT NULL,
