@@ -4,6 +4,8 @@ CREATE TABLE person (
  login varchar(15) NOT NULL,
  password varchar(20) NOT NULL,
  phone varchar(12) NOT NULL,
+ created_at timestamp NOT NULL,
+ updated_at timestamp,
  PRIMARY KEY (id)
 );
 
