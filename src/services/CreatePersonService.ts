@@ -8,7 +8,7 @@ interface PersonRequest{
   login: string
   password: string
   phone: string
-  person_type: string,
+  type: string,
   state_registration: string
   cnpj: string
   cpf: string
@@ -22,7 +22,7 @@ interface PromiseProps {
 }
 
 export class CreatePersonService {
-  async execute({name, login, password, phone, person_type, state_registration, cpf, cnpj, rg}: PersonRequest): Promise<PromiseProps>{
+  async execute({name, login, password, phone, type, state_registration, cpf, cnpj, rg}: PersonRequest): Promise<PromiseProps>{
     const repo = getRepository(Person)  
     const naturalRepo = getRepository(NaturalPerson)
     const juridicalRepo = getRepository(JuridicalPerson)
@@ -32,13 +32,13 @@ export class CreatePersonService {
       login,
       password,
       phone,
-      type: person_type,
+      type,
       created_at: new Date(),
     })
 
     await repo.save(person)
 
-    if(person_type === "natural"){
+    if(type === "natural"){
       const natural = naturalRepo.create({
         cpf,
         rg,

@@ -8,7 +8,7 @@ interface DataProps{
   login: string
   password: string
   phone: string
-  person_type: string,
+  type: string,
   state_registration: string
   cnpj: string
   cpf: string
@@ -24,7 +24,7 @@ export class UpdatePersonService {
     const person = await repo.findOne({where: {id: id} })
 
     if(!person){
-      return new Error('Category does not exists.')
+      return new Error('Person does not exists.')
     }
 
     person.name = data.name
@@ -36,7 +36,7 @@ export class UpdatePersonService {
     const naturalPerson = await naturalRepo.findOne({where: {id_person: id} })
     const juridicalPerson = await juridicalRepo.findOne({where: {id_person: id} })
 
-    if(data.person_type === 'natural'){
+    if(data.type === 'natural'){
       naturalPerson.rg = data.rg
       naturalPerson.cpf = data.cpf
 
