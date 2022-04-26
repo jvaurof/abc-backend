@@ -7,13 +7,11 @@ export class UpdatePersonController{
 
     const service = new UpdatePersonService()
 
-    const result = await service.execute(Number(id), request.body)
-
-    if(result instanceof Error){
-      return response.status(400).json(result.message)
-    }
-
-    return response.json(result)
-     
+    try{
+      const result = await service.execute(Number(id), request.body)
+      return response.json(result)
+    }catch(error){
+      return response.status(400).json(error.message)
+    } 
   }
 }

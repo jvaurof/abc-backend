@@ -5,8 +5,13 @@ export class GetAllPersonController {
   async handle(request: Request, response: Response){
     const service = new GetAllPersonService()
 
-    const person = await service.execute()
+    try{
+      const person = await service.execute()
 
-    return response.json(person)
+      return response.json(person)
+    }catch(error){
+      return response.status(400).json(error.message)
+    }
+    
   }
 }

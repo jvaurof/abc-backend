@@ -7,12 +7,12 @@ export class DeletePersonController{
 
     const service = new DeletePersonService()
 
-    const result = await service.execute(Number(id))
+    try{
+      await service.execute(Number(id))
 
-    if(result instanceof Error){
-      return response.status(400).json()
-    }
-
-    return response.status(200).end()
+      return response.status(200).end()
+    }catch(error){
+      return response.status(400).json(error.message)
+    }    
   }
 }

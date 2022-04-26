@@ -5,12 +5,11 @@ export class CreatePersonController {
   async handle(request: Request, response: Response){
     const service = new CreatePersonService()
 
-    const result = await service.execute(request.body)
-
-    if(result instanceof Error){
-      return response.status(400).json(result.message)
+    try{
+      const result = await service.execute(request.body)
+      return response.json(result)
+    }catch(error){
+      return response.status(400).json(error.message)
     }
-
-    return response.json(result)
   }
 }

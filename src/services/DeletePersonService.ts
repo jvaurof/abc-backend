@@ -6,7 +6,7 @@ export class DeletePersonService {
     const repo =getRepository(Person)
 
     if(!(await repo.findOne({where: {id: id} }))){
-      return new Error('Category does not exists.')
+      throw new Error('Person does not exists.')
     }
 
     await repo.delete(id)

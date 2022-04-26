@@ -24,7 +24,7 @@ export class UpdatePersonService {
     const person = await repo.findOne({where: {id: id} })
 
     if(!person){
-      return new Error('Person does not exists.')
+      throw new Error('Person does not exists.')
     }
 
     person.name = data.name
