@@ -2,6 +2,7 @@ import { getRepository } from "typeorm"
 import { Person } from "../entities/Person"
 import {NaturalPerson} from '../entities/NaturalPerson'
 import {JuridicalPerson} from '../entities/JuridicalPerson'
+import {encrypt} from '../util/encrypt'
 
 interface PersonRequest{
   name: string
@@ -27,10 +28,11 @@ export class CreatePersonService {
     const naturalRepo = getRepository(NaturalPerson)
     const juridicalRepo = getRepository(JuridicalPerson)
 
+
     const person = repo.create({
       name,
       login,
-      password,
+      password: encrypt(password),
       phone,
       type,
       created_at: new Date(),

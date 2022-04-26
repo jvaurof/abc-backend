@@ -2,6 +2,7 @@ import { getRepository } from "typeorm";
 import { JuridicalPerson } from "../entities/JuridicalPerson";
 import { NaturalPerson } from "../entities/NaturalPerson";
 import { Person } from "../entities/Person";
+import { encrypt } from "../util/encrypt";
 
 interface DataProps{
   name: string
@@ -28,7 +29,7 @@ export class UpdatePersonService {
     }
 
     person.name = data.name
-    person.password = data.password
+    person.password = encrypt(data.password)
     person.phone = data.phone
      
     await repo.save(person)   
