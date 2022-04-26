@@ -1,3 +1,5 @@
+CREATE DATABASE abc;
+
 CREATE TYPE person_type AS ENUM ('natural', 'juridical');
 
 CREATE TABLE person (
